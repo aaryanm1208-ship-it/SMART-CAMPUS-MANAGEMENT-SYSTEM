@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Campus Dashboard</h1>
+
+<div id="stats"></div>
+
+<script>
+fetch("/dashboard")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("stats").innerHTML = `
+      <p>Total Students: ${data.students}</p>
+      <p>Total Faculty: ${data.faculty}</p>
+      <p>Total Notices: ${data.notices}</p>
+    `;
+  });
+</script>
+
+</body>
+</html>
