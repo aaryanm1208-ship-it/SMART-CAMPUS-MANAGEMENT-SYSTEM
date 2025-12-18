@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Student Panel</h2>
+<h3>Notices</h3>
+<ul id="notices"></ul>
+
+<script>
+fetch("/notices")
+  .then(res => res.json())
+  .then(data => {
+    data.forEach(n => {
+      document.getElementById("notices").innerHTML += `<li>${n.text}</li>`;
+    });
+  });
+</script>
+
+</body>
+</html>
